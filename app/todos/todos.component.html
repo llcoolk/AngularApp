@@ -1,0 +1,21 @@
+<!-- <h2>My Todos</h2> -->
+
+<div class="input">
+  <label>To Do:
+    <input class="todoAdd" #todoName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add" (click)="add(todoName.value); todoName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="todos">
+  <li *ngFor="let todo of todos">
+    <a routerLink="/detail/{{todo.id}}">
+      <span class="badge">{{todo.id}}</span> {{todo.name | uppercase}}
+    </a>
+    <button class="delete" title="delete todo"
+    (click)="delete(todo)">X</button>
+  </li>
+</ul>
